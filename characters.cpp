@@ -12,7 +12,8 @@ void drawCharacter(int character, int x, int y, int r, int g, int b) {
   for (int i = 0; i < 8; i++) {
     uint8_t row = CHARACTERS[character][i];
     for (int j = 0; j < 8; j++) {
-      uint8_t pixel = (row >> j) & 1;
+      uint8_t offset = 7 - j;
+      uint8_t pixel = (row >> offset) & 1;
       if (pixel > 0) {
         setPixel(x + j, y + i, r, g, b);
       } else {
