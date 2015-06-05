@@ -49,8 +49,9 @@ void drawString(char *string, int16_t xOffset, int16_t yOffset) {
     }
 
     // Determine if the character is within the drawable field
-    if (x + characterWidth > -1) {
-      drawCharacter(string[i] - 32, x, yOffset, 80, 0, 0);
+    // and if it's a drawable character
+    if (x + characterWidth > -1 && characterWidth > SPACE_WIDTH) {
+      drawCharacter(string[i] - 33, x, yOffset, 80, 0, 0);
     }
 
     width += characterWidth;
